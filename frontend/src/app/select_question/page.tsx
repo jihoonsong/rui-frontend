@@ -1,4 +1,5 @@
-import MobileLayout from '../../components/mobile_layout';
+import MobileOrangeLayout from '../../components/mobile_orange_layout';
+import Link from "next/link";
 
 type Question = {
   id: number;
@@ -26,22 +27,22 @@ export default function SelectQuestion() {
   ];
 
   return (
-    <MobileLayout>
+    <MobileOrangeLayout>
       <div className="text-white font-bold text-2xl mb-8">
-        Select question to view result
+        Pick a question to view results
       </div>
 
       <ul className="w-full space-y-4">
         {questions.map((question) => (
           <li key={question.id}>
-            <button className="w-full flex justify-between items-center bg-white rounded-lg p-4">
+            <Link href="/view_anon_results" className="w-full flex justify-between items-center bg-white rounded-lg p-4">
               <div className="flex flex-col">
                 <span className="font-bold">{question.emoji} {question.text}</span>
               </div>
-            </button>
+            </Link>
           </li>
         ))}
       </ul>
-    </MobileLayout>
+    </MobileOrangeLayout>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import MobileLayout from '../../components/mobile_layout';
+import MobileOrangeLayout from '../../components/mobile_orange_layout';
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Question = {
@@ -16,6 +17,7 @@ type Answer = {
 };
 
 export default function AskQuestions() {
+  const router = useRouter();
   const questions: Question[] = [
     {
       id: 1,
@@ -49,16 +51,15 @@ export default function AskQuestions() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      alert("You've completed all the questions!");
-      console.log("Recorded Answers:", answers);
+      router.push("/done_questions");
     }
   };
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <MobileLayout>
-      <div className="text-gray-300 text-lg mb-8" style={{ minHeight: '24px' }}>
+    <MobileOrangeLayout>
+      <div className="text-gray-100 text-lg mb-8" style={{ minHeight: '24px' }}>
         {currentQuestionIndex + 1} of {questions.length}
       </div>
 
@@ -66,7 +67,7 @@ export default function AskQuestions() {
         {currentQuestion.emoji}
       </div>
 
-      <div className="text-2xl font-semibold mb-12" style={{ minHeight: '48px', maxWidth: '300px' }}>
+      <div className="text-white text-2xl font-semibold mb-12" style={{ minHeight: '48px', maxWidth: '300px' }}>
         {currentQuestion.text}
       </div>
 
@@ -81,6 +82,6 @@ export default function AskQuestions() {
           </button>
         ))}
       </div>
-    </MobileLayout>
+    </MobileOrangeLayout>
   );
 }

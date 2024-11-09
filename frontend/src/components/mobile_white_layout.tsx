@@ -4,14 +4,14 @@ interface MobileLayoutProps {
   children: React.ReactNode;
 }
 
-const MobileLayout: React.FC<MobileLayoutProps> = ({ children }) => {
+const MobileWhiteLayout: React.FC<MobileLayoutProps> = ({ children }) => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+    <div className="flex items-center justify-center min-h-screen">
       {/* Outer Phone Border */}
-      <div className="relative w-[400px] h-[780px] bg-black rounded-[40px] p-2 flex items-center justify-center shadow-2xl border border-gray-800">
+      <div className="w-[400px] h-[780px] bg-black rounded-[40px] p-2">
 
         {/* Inner Screen */}
-        <div className="relative w-full h-full bg-orange-500 rounded-[30px] overflow-hidden">
+        <div className="w-full h-full bg-neutral-50 rounded-[30px] overflow-hidden">
 
           {/* Notch */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-[155px] h-5 bg-black rounded-b-lg"></div>
@@ -29,4 +29,4 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ children }) => {
   );
 };
 
-export default MobileLayout;
+export default MobileWhiteLayout;

@@ -1,4 +1,4 @@
-import MobileLayout from '../../components/mobile_layout';
+import MobileOrangeLayout from '../../components/mobile_orange_layout';
 
 export default function ViewActualResults() {
     const actualResults = [
@@ -9,7 +9,7 @@ export default function ViewActualResults() {
     ];
     
     return (
-      <MobileLayout>
+      <MobileOrangeLayout>
         <ul className="w-full space-y-4">
           {actualResults.map((actual, index) => (
             <li key={index} className="flex justify-center items-center bg-white rounded-lg p-4 shadow-md">
@@ -19,6 +19,6 @@ export default function ViewActualResults() {
             </li>
           ))}
         </ul>
-      </MobileLayout>
+      </MobileOrangeLayout>
     );
   }
