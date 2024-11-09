@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MobileLayout from '../components/mobile_layout';
+import MobileLayout from '../../components/mobile_layout'
 
 export default function Home() {
   return (
