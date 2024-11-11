@@ -21,7 +21,7 @@ export default function SelectGroup() {
         "identity_commitment": identity.commitment.toString()
       });
       console.log("(AddMember) Succeeded");
-      router.push("/ask_first_name");
+      router.push("/ask_name");
     } catch (err: any) {
       console.error("(AddMember) Error:", err);
     }
