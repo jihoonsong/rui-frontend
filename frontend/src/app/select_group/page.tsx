@@ -3,7 +3,7 @@
 import MobileOrangeLayout from "../../components/mobile_orange_layout";
 import { useRouter } from "next/navigation";
 import { sendJsonRpcRequest } from "../../scripts/rpc";
-import { Identity } from "@semaphore-protocol/identity"
+import { IDENTITY } from "@/scripts/constants";
 
 export default function SelectGroup() {
   const router = useRouter();
@@ -16,9 +16,8 @@ export default function SelectGroup() {
 
   const handleGroupClick = async () => {
     try {
-      let identity = new Identity()
       await sendJsonRpcRequest("rui_addMember", {
-        "identity_commitment": identity.commitment.toString()
+        "identity_commitment": IDENTITY.commitment.toString()
       });
       console.log("(AddMember) Succeeded");
       router.push("/ask_name");

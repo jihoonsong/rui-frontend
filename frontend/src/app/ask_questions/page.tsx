@@ -5,6 +5,7 @@ import MobileOrangeLayout from '../../components/mobile_orange_layout';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Identity } from '@semaphore-protocol/identity';
+import { QUESTION_IDS } from '@/scripts/constants';
 
 type Question = {
   id: number;
@@ -56,7 +57,7 @@ export default function AskQuestions() {
       try {
         let identity = new Identity() // TODO: Send name and let backend replace it with the corresponding identity commitment.
         await sendJsonRpcRequest("rui_addAnswer", {
-          "question_id": "0x2977eee10e891c7a032d94522681715592448be31cb38c666442742a9d760c08".toString(),
+          "question_id": QUESTION_IDS,
           "answer": identity.commitment.toString()
         });
         console.log("(AddAnswer) Succeeded");
