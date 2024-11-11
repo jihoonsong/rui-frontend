@@ -1,8 +1,10 @@
 "use client";
 
+import { sendJsonRpcRequest } from '@/scripts/rpc';
 import MobileOrangeLayout from '../../components/mobile_orange_layout';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Identity } from '@semaphore-protocol/identity';
 
 type Question = {
   id: number;
@@ -42,7 +44,7 @@ export default function AskQuestions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
 
-  const handleAnswerClick = (option: string) => {
+  const handleAnswerClick = async (option: string) => {
     setAnswers((prevAnswers) => [
       ...prevAnswers,
       { questionId: questions[currentQuestionIndex].id, answer: option },
@@ -51,7 +53,17 @@ export default function AskQuestions() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      router.push("/done_questions");
+      try {
+        let identity = new Identity() // TODO: Send name and let backend replace it with the corresponding identity commitment.
+        await sendJsonRpcRequest("rui_addAnswer", {
+          "question_id": "0x2977eee10e891c7a032d94522681715592448be31cb38c666442742a9d760c08".toString(),
+          "answer": identity.commitment.toString()
+        });
+        console.log("(AddAnswer) Succeeded");
+        router.push("/done_questions");
+      } catch (err: any) {
+        console.error("(AddAnswer) Error:", err);
+      }
     }
   };
 
