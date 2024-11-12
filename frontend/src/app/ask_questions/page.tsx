@@ -5,7 +5,10 @@ import MobileOrangeLayout from '../../components/mobile_orange_layout';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Identity } from '@semaphore-protocol/identity';
-import { QUESTION_IDS } from '@/scripts/constants';
+import { IDENTITY, QUESTION_ID } from '@/scripts/constants';
+import type { BigNumberish } from "ethers"
+import { keccak256 } from "ethers/crypto"
+import { toBeHex } from "ethers/utils"
 
 type Question = {
   id: number;
@@ -57,7 +60,10 @@ export default function AskQuestions() {
       try {
         let identity = new Identity() // TODO: Send name and let backend replace it with the corresponding identity commitment.
         await sendJsonRpcRequest("rui_addAnswer", {
-          "question_id": QUESTION_IDS,
+          "secret_bytes": IDENTITY.secretScalar.toString(),
+          "message_bytes": hash(IDENTITY.commitment.toString()),
+          "scope_bytes": hash(QUESTION_ID),
+          "question_id": QUESTION_ID,
           "answer": identity.commitment.toString()
         });
         console.log("(AddAnswer) Succeeded");
@@ -68,6 +74,9 @@ export default function AskQuestions() {
     }
   };
 
+  function hash(message: BigNumberish): string {
+    return (BigInt(keccak256(toBeHex(message, 32))) >> BigInt(8)).toString()
+  }
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
