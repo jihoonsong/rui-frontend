@@ -29,19 +29,7 @@ export default function AskQuestions() {
       id: 1,
       emoji: "🐱",
       text: "Was probably a cat in their past life",
-      options: ["Shad Mcfadden", "Ja'Nayia Johnson", "Magnus Davis", "Alex Kaercher"],
-    },
-    {
-      id: 2,
-      emoji: "😂",
-      text: "Has the best laugh",
-      options: ["Taylor Smith", "Jordan Lee", "Casey Brown", "Jamie Wu"],
-    },
-    {
-      id: 3,
-      emoji: "🦸",
-      text: "Could be a secret superhero",
-      options: ["Chris O'Donnell", "Morgan Black", "Patricia Lane", "Robin Torres"],
+      options: ["Casey Brown", "Jamie Wu", "Magnus Davis", "Alex Kaercher"],
     },
   ];
 
@@ -81,15 +69,15 @@ export default function AskQuestions() {
 
   return (
     <MobileOrangeLayout>
-      <div className="text-gray-100 text-lg mb-8" style={{ minHeight: '24px' }}>
-        {currentQuestionIndex + 1} of {questions.length}
+      <div className="text-[#FFB18A] text-xl mb-5" style={{ minHeight: '24px' }}>
+        {currentQuestionIndex + 1} / {questions.length}
       </div>
 
-      <div className="text-7xl mb-10" style={{ minHeight: '72px' }}>
-        {currentQuestion.emoji}
+      <div className="text-7xl mb-8" >
+        <img src="cat.svg" alt="Cat" className="h-20" />
       </div>
 
-      <div className="text-white text-2xl font-semibold mb-12" style={{ minHeight: '48px', maxWidth: '300px' }}>
+      <div className="text-[#EBDBC2] text-2xl mb-12 dela-gothic-one" style={{ minHeight: '48px', maxWidth: '300px' }}>
         {currentQuestion.text}
       </div>
 
@@ -98,7 +86,7 @@ export default function AskQuestions() {
           <button
             key={option}
             onClick={() => handleAnswerClick(option)}
-            className="bg-white text-gray-800 py-2 rounded-lg"
+            className="bg-[#F2EBE1] black-han-sans text-[#051313] py-2 rounded-lg"
           >
             {option}
           </button>

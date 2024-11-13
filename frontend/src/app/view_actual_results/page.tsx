@@ -12,9 +12,9 @@ export default function ViewActualResults() {
       <MobileOrangeLayout>
         <ul className="w-full space-y-4">
           {actualResults.map((actual, index) => (
-            <li key={index} className="flex justify-center items-center bg-white rounded-lg p-4 shadow-md">
+            <li key={index} className="flex justify-center items-center bg-[#F2EBE1] rounded-lg p-4 shadow-md">
               <div className="flex flex-col text-center">
-                <span className="font-bold">{actual.name}</span>
+                <span className=" text-[#051313] black-han-sans">{actual.name}</span>
               </div>
             </li>
           ))}

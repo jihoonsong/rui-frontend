@@ -11,7 +11,7 @@ const MobileWhiteLayout: React.FC<MobileLayoutProps> = ({ children }) => {
       <div className="w-[400px] h-[780px] bg-black rounded-[40px] p-2">
 
         {/* Inner Screen */}
-        <div className="w-full h-full bg-neutral-50 rounded-[30px] overflow-hidden">
+        <div className="w-full h-full bg-[#F3EBE1] rounded-[30px] overflow-hidden">
 
           {/* Notch */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-[155px] h-5 bg-black rounded-b-lg"></div>

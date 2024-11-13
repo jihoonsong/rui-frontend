@@ -28,16 +28,16 @@ export default function SelectQuestion() {
 
   return (
     <MobileOrangeLayout>
-      <div className="text-white font-bold text-2xl mb-8">
+      <div className="dela-gothic-one text-3xl text-[#EBDBC2] mb-8">
         Pick a question to view results
       </div>
 
       <ul className="w-full space-y-4">
         {questions.map((question) => (
           <li key={question.id}>
-            <Link href="/view_anon_results" className="w-full flex justify-between items-center bg-white rounded-lg p-4">
+            <Link href="/view_anon_results" className="w-full flex justify-between items-center bg-[#F2EBE1] rounded-lg p-4">
               <div className="flex flex-col">
-                <span className="font-bold">{question.emoji} {question.text}</span>
+                <span className="black-han-sans text-sm text-[#051313]">{question.emoji} {question.text}</span>
               </div>
             </Link>
           </li>
