@@ -20,7 +20,7 @@ export default function AskLastName() {
       />
 
       <button className="flex items-center justify-center px-6 py-4 mt-10 rounded-full shadow-lg bg-[#F3ECE1] font-medium" style={{ width: "230px" }}>
-        <Link href="/ask_questions" className="font-bold text-[#1E1E1E]">Next</Link>
+        <Link href="/inform_anon_id" className="font-bold text-[#1E1E1E]">Next</Link>
       </button>
     </MobileOrangeLayout>
   );

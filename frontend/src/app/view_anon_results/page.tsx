@@ -9,7 +9,7 @@ export default function ViewAnonResults() {
     const router = useRouter();
     const anonResults = [
       { name: "112376228254773363...", votes: 11 },
-      { name: "771224134511177185...", votes: 4 },
+      { name: "581463294390436305...", votes: 4 },
       { name: "933266352786270961...", votes: 3 },
       { name: "132558218938205369...", votes: 1 },
     ];
