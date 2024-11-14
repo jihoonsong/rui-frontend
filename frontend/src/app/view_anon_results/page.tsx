@@ -9,7 +9,7 @@ export default function ViewAnonResults() {
     const router = useRouter();
     const anonResults = [
       { name: "112376228254773363...", votes: 11 },
-      { name: "771224134511177185...", votes: 7 },
+      { name: "771224134511177185...", votes: 4 },
       { name: "933266352786270961...", votes: 3 },
       { name: "132558218938205369...", votes: 1 },
     ];
@@ -37,16 +37,16 @@ export default function ViewAnonResults() {
             ))}
           </ul>
 
-          <div className="text-[#EBDBC2] dela-gothic-one text-2xl mt-8 mb-3">
+          <div className="text-[#EBDBC2] dela-gothic-one text-2xl mt-8 mb-1">
               Curious to know who picked you?
           </div>
           <button
-            className="mt-4 bg-[#F2EBE1] text-[#1E1E1E] black-han-sans py-2 px-9 text-lg rounded-full shadow-md"
+            className="mt-4 bg-[#051313] text-[#EBDBC2] black-han-sans py-3 px-9 text-lg rounded-full shadow-md"
             onClick={async () => {
               await enter()
               router.push("/view_actual_results")
             }}>
-              Unlock Names
+              <div className="flex gap-2">Unlock names<img src="unlock.svg" alt="Unlock"/></div>
           </button>
           <div className="text-white font-bold text-xl mt-8">
               <WalletButton/>
